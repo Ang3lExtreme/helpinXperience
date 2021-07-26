@@ -12,6 +12,7 @@ module.exports = {
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     CERTIFICATE_KEY: process.env.CERTIFICATE_KEY,
     SERVER: process.env.SERVER,
+   
   },
   images: {
     loader: "imgix",

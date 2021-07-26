@@ -1,6 +1,6 @@
-import { Formik, Form, useField, FieldAttributes } from 'Formik'
+import { Formik, Form, useField, FieldAttributes } from 'formik'
 import { TextField, Button } from "@material-ui/core";
-import * as Yup from 'Yup';
+import * as Yup from 'yup';
 import { api, storageProfilePic } from '../../../services/api';
 import { AuthContext } from '../../Context/AuthContext'
 import React, { useContext, useEffect, useState } from 'react'

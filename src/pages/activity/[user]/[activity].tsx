@@ -1,10 +1,10 @@
 import styles from '../../styles/activity.module.scss'
 import Header from '../../../Components/Header'
-import { Formik, Form, useField, FieldAttributes } from 'Formik'
+import { Formik, Form, useField, FieldAttributes } from 'formik'
 import Cookies from 'js-cookie'
 import { api, storageProfilePic } from '../../../../services/api'
 import useSWR from 'swr'
-import * as Yup from 'Yup';
+import * as Yup from 'yup';
 import Loading from '../../../Components/Loading'
 import SessionOf from '../../../Components/SessionOf'
 import Image from 'next/image'

@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
 import React, { useState } from 'react';
-import * as Yup from 'Yup';
+import * as Yup from 'yup';
 import { TextField, Button } from "@material-ui/core";
-import { Formik, Form, useField, FieldAttributes } from 'Formik';
+import { Formik, Form, useField, FieldAttributes } from 'formik';
 import { useRouter } from 'next/router';
 
 const MyTextField: React.FC<FieldAttributes<{}>> = ({ type, placeholder, ...props }) => {

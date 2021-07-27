@@ -46,10 +46,7 @@ export default function ActivitiesToDoList() {
     }
 
 
-    useEffect(() => {
-      fetchData();
-    }  
-    , [])
+   
   return (
     <div>
        <h3 style={{ textAlign: 'center' }}>Atividades Agendadas</h3>

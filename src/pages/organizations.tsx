@@ -8,6 +8,7 @@ import React from 'react';
 import {Token,userProps,listuserProps} from '../types';
 import jwt_decode from "jwt-decode"
 import Loading from '../Components/Loading';
+import Head from "next/head";
 
 
 async function fetcher(path: string): Promise<listuserProps> {
@@ -34,6 +35,9 @@ export default function Organizations() {
 
     return (
         <div className={styles.container}>
+            <Head>
+                <title>Organizações</title>
+            </Head>
             <div className={styles.header}>
                 <Header />
             </div>

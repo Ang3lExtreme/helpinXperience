@@ -78,15 +78,20 @@ export default function Login() {
 
                   setSubmitting(true);
 
-                  if(error == 'email')
+                  if(error == 'email'){
                     setEmailError(true);
+                    return;
+                  }
 
-                  else if(error == 'inputerror')
-                    setInputError(true);
+                  else if(error == 'inputerror'){
+                    setInputError(true)
+                    return;
+                  }
 
                   else {
                     handleLogin(values);
                     setSubmitting(false);
+                    
                   }
                   }}>
 

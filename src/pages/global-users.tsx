@@ -182,7 +182,7 @@ export default function Users() {
                             {usersReported.map( (user, index) => 
                                     <tbody key={index}>
                                         <tr>
-                                            <td>{user.username}</td> 
+                                            <td><a href={`${user.username}`}>{user.username}</a></td> 
                                             <td>{user.reports}</td>
                                         </tr>
                                     </tbody>
@@ -215,7 +215,7 @@ export default function Users() {
                                     {usersDisabled.map( (user, index) => 
                                             <tbody key={index}>
                                                 <tr>
-                                                    <td>{user.username}</td> 
+                                                    <td><a href={`${user.username}`}>{user.username}</a></td> 
                                                 </tr>
                                             </tbody>
                                         )
@@ -248,7 +248,7 @@ export default function Users() {
                                     {usersSuspended.map( (user, index) => 
                                             <tbody key={index}>
                                                 <tr>
-                                                    <td>{user.username}</td> 
+                                                    <td><a href={`${user.username}`}>{user.username}</a></td> 
                                                 </tr>
                                             </tbody>
                                         )

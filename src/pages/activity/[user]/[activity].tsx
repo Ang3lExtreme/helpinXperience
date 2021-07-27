@@ -55,6 +55,23 @@ export default function Activity() {
       });
 
 
+      async function ApagarAtividade(){
+        const config = {
+            headers: {
+              'Authorization': 'Bearer ' + token ,
+              'Content-Type': 'application/json'
+            }
+          }
+
+        await api.delete('', config).then(response => setActivity(response.data))
+            
+        
+        router.push('/home')
+
+
+      }
+
+
     async function fetchActivity(path: string) {
         
         await api.get(path, config).then(response => setActivity(response.data))
@@ -202,7 +219,10 @@ export default function Activity() {
                                     {isParticipating ? "Cancelar" : "Participar"}
                                 </button>
                         }
-                       
+                        {
+                            activity.activityOwner == decodedtoken.iss ?
+                            <button className={styles.addhours} onClick={ApagarAtividade}>Apagar Atividade</button> : null
+                        }
 
                         {
 

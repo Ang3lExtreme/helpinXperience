@@ -49,7 +49,7 @@ export default function Home() {
 
   const SearchEnter = async (e) => {
     if(e.key === 'Enter'){
-      console.log('enter')
+      //console.log('enter')
       await api.get(`activities/search/?keyword=${val}`,config).then((response) => {
         console.log(response.data)
         setEndlist(false);
@@ -60,7 +60,7 @@ export default function Home() {
   const Search = async () => {
     
     await api.get(`activities/search/?keyword=${val}`,config).then((response) => {
-      console.log(response.data)
+      //console.log(response.data)
       setEndlist(false);
       setListativities(response.data)
     })
@@ -84,7 +84,7 @@ export default function Home() {
   , [cursor])
   
  function fetchData() {
-  console.log('segundo fetch')
+  //console.log('segundo fetch')
      api.post(path, cursor, config).then( (response) => {
 
       res = response.data;
@@ -92,12 +92,13 @@ export default function Home() {
         setEndlist(false);
         return;
       }
-      console.log(response.data.results)
+      //console.log(response.data.results)
       setListativities((current) => 
         current.concat(response.data.results)   
     )
     setCursor(response.data.cursorString)
-      console.log(cursor);});
+      //console.log(cursor);
+    });
   }
 
 

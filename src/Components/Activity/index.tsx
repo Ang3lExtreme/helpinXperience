@@ -16,7 +16,7 @@ async function fetcher(path: string): Promise<userProps> {
     }
   }
   return await api.get(path,config).then(response => response.data).catch(error => {
-    console.log('')
+    //console.log('')
   });
 }
 

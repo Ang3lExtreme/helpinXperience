@@ -27,10 +27,10 @@ export default function Organizations() {
 
     const decodedToken: Token = jwt_decode(Cookies.getJSON('token'));
     const { data, error } = useSWR(`users/listorg`, fetcher);
-    console.log(data)
+    //console.log(data)
     if (error) { return (<div>error</div>) }
     if (!data) return <Loading />
-    console.log(data)
+    //console.log(data)
 
     return (
         <div className={styles.container}>

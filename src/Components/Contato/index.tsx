@@ -52,7 +52,7 @@ export default function Contato() {
     //accesses the form values which do not come in an array and so therefore we wrap it with Array.from
     //then we can iterate it and store it in formData
     Array.from(e.currentTarget.elements).forEach((field: { name: string | number; value: any; }) => { formData[field.name] = field.value });
-    console.log(formData.name)
+    //console.log(formData.name)
   }
 
   return (
@@ -83,7 +83,7 @@ export default function Contato() {
               body: JSON.stringify(values)
             });
             
-            console.log('')
+            //console.log('')
             setSubmitting(false);
             setLoading(false)
             resetForm();

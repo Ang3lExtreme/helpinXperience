@@ -21,20 +21,21 @@ export default function OwnActivitiesList() {
     }
   }
   async function fetchData() {
-    console.log('segundo fetch')
-    console.log(username)
+    //console.log('segundo fetch')
+//console.log(username)
        await api.post(`activities/listCreatedActivities/?username=${username}`, cursor, config).then( (response) => {
         
         if(response.data.results.length === 0 ){
           setEndlist(false);
           return;
         }
-        console.log(response.data.results)
+        //console.log(response.data.results)
         setListativities((current) => 
           current.concat(response.data.results)   
       )
       setCursor(response.data.cursorString)
-        console.log(cursor);});
+        //console.log(cursor);
+      });
     }
     useEffect(() => {
       fetchData();

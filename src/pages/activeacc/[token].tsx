@@ -31,13 +31,13 @@ export default function token(){
                 .then( function (response) {
                   setStatus(response.status);
                   setMessage(response.data);
-                  console.log("200000")
-                  console.log(response.status);
+                  //console.log("200000")
+                  //console.log(response.status);
                 })
                 .catch( function (error) {
                   setMessage(error.response.data);
                   setStatus(error.response.status);
-                  console.log(error.response.status);
+                  //console.log(error.response.status);
                 })
   
     }

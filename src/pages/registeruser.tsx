@@ -81,7 +81,7 @@ export default function Register() {
                     setValues(values);
     
                    
-                console.log(response.data);
+                //console.log(response.data);
               })
                 .catch(function (error) {
 

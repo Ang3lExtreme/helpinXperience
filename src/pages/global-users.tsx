@@ -47,7 +47,7 @@ export default function Users() {
         await api.post('backoffice/listreports', uRcursor, config)
                     .then((response) => {
 
-                        console.log("request reported");
+                        //console.log("request reported");
 
                         if(response.data.results.length == 0 ) {
                             setEndUR(false);
@@ -63,7 +63,7 @@ export default function Users() {
                         setShowUD(false);
                         setShowUS(false);
 
-                        console.log(response);
+                        //console.log(response);
                     })
                     .catch(error => console.log(error));
 
@@ -80,7 +80,7 @@ export default function Users() {
         await api.post('backoffice/listdisabled', uRcursor, config)
                     .then((response) => {
 
-                        console.log("request disabled");
+                        //console.log("request disabled");
 
                         if(response.data.results.length == 0 ) {
                             setEndUD(false);
@@ -96,7 +96,7 @@ export default function Users() {
                         setShowUR(false);
                         setShowUS(false);
 
-                        console.log(response);
+                        //console.log(response);
                     })
                     .catch(error => console.log(error));
 
@@ -110,7 +110,7 @@ export default function Users() {
 
         await api.post('backoffice/listsuspended', uRcursor, config)
                     .then((response) => {
-                        console.log("request suspended");
+                        //console.log("request suspended");
 
                         if(response.data.results.length == 0 ) {
                             setEndUS(false);
@@ -124,7 +124,7 @@ export default function Users() {
                         setShowUR(false);
                         setShowUD(false);
                         setShowUS(true);
-                        console.log(response);
+                        //console.log(response);
                     })
                     .catch(error => console.log(error));
 

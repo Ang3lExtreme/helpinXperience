@@ -9,8 +9,8 @@ export default function Confirmacao(props) {
 
   const res = props.res;
   const message = props.message;
-  console.log('res',res)
-  console.log('message',message)
+  //console.log('res',res)
+  //console.log('message',message)
   return (
     <div>
         <Head>

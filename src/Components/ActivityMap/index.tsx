@@ -61,7 +61,7 @@ export default function MapActivity(mapProps: mapProps) {
         setResponse(response)
         
       } else{
-          console.log("OVER_QUERY_LIMIT ");
+          //console.log("OVER_QUERY_LIMIT ");
      
       }
     }
@@ -115,9 +115,6 @@ export default function MapActivity(mapProps: mapProps) {
                 />
               )
             }
-
-
-
 
       </GoogleMap> :
         <GoogleMap mapContainerStyle={mapContainerStyle}

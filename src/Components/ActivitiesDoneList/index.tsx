@@ -21,19 +21,20 @@ export default function ActivitiesDoneList() {
     }
   }
   async function fetchData() {
-    console.log('segundo fetch')
+    //console.log('segundo fetch')
        await api.post(`activities/listPastActivities/?username=${username}`, cursor, config).then( (response) => {
   
         if(response.data.results.length === 0 ){
           setEndlist(false);
           return;
         }
-        console.log(response.data.results)
+        //console.log(response.data.results)
         setListativities((current) => 
           current.concat(response.data.results)   
       )
       setCursor(response.data.cursorString)
-        console.log(cursor);});
+        //console.log(cursor);
+      });
     }
     useEffect(() => {
       fetchData();

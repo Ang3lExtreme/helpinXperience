@@ -74,14 +74,14 @@ export default function Register() {
 
                         values.confirmation = values.password;
 
-                        console.log(values);
+                        //console.log(values);
 
                         await api.post('users/insert', values
                             ).then(function (response) {
-                            console.log(JSON.stringify(response.data));
+                            //console.log(JSON.stringify(response.data));
                             })
                             .catch(function (error) {
-                                console.log(error.response.data);
+                                //console.log(error.response.data);
                             });
 
                         setSubmitting(false);

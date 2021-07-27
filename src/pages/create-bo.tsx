@@ -89,7 +89,7 @@ export default function Register() {
 
                     resetForm();
 
-                    console.log(values);
+                    //console.log(values);
                 }}>
 
                 {({ isSubmitting }) => (

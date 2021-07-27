@@ -43,8 +43,6 @@ export default function Activity() {
         )
     }
     async function SetHours() {
-        
-
         await api.get(`activities/compute/${activity.ID}/${activity.activityTime}`,config).then(response => console.log(response.data))
         router.reload();
     }
@@ -99,7 +97,7 @@ export default function Activity() {
 
         fetchActivity(`activities/get/${activityID}/${activityOwner}`)
         fetch();
-        console.log(activity)
+        //console.log(activity)
         fetchUserJoined(`activities/listJoinedUsers/${activityID}`);
         
     }, [isParticipating])
@@ -132,10 +130,16 @@ export default function Activity() {
         long: activity.lon,
         waypoints: activity.waypoints,
     }
+    var now = new Date(Date.now())
+    
     var today = activity.date.split("-")
-    console.log(activity.date)
-    var newDate = new Date(parseInt(today[0]),parseInt(today[1])-1,parseInt(today[2]));
-    console.log(newDate);
+    var hour = activity.startHour.split(":")
+    //console.log(activity.date)
+    //console.log(parseInt(today[1]))
+    var newDate = new Date(parseInt(today[0]),parseInt(today[1])-1,parseInt(today[2]),parseInt(hour[0]),parseInt(hour[1]));
+    //console.log(newDate > now );
+    //console.log(now)
+   // console.log(newDate)
     
     
 
@@ -193,7 +197,7 @@ export default function Activity() {
 
                         {
                             
-                            format(new Date(activity.date), "dd/MM/yyyy") > format(Date.now(),"dd/MM/yyyy")  ?
+                            newDate < now || activity.activityOwner == decodedtoken.iss || activity.participants == activity.totalParticipants  ?
                                 <></> : <button onClick={handleClick}>
                                     {isParticipating ? "Cancelar" : "Participar"}
                                 </button>
@@ -202,7 +206,7 @@ export default function Activity() {
 
                         {
 
-(format(new Date(activity.date), "dd/MM/yyyy") < format(Date.now(),"dd/MM/yyyy") ) && activity.activityOwner === decodedtoken.iss && activity.done === false ? <button className={styles.addhours} onClick={SetHours}>
+newDate < now  && activity.activityOwner === decodedtoken.iss && activity.done === false ? <button className={styles.addhours} onClick={SetHours}>
 Atribuir Horas aos participantes {activity.done}
 </button> : <></>
                             

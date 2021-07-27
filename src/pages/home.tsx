@@ -81,10 +81,10 @@ export default function Home() {
   useEffect(() => {
     fetchData();
   }  
-  , [cursor])
+  , [])
   
  function fetchData() {
-  //console.log('segundo fetch')
+  console.log('fetch')
      api.post(path, cursor, config).then( (response) => {
 
       res = response.data;

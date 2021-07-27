@@ -84,6 +84,7 @@ export default function Profile() {
             <div className={styles.header}>
                 <Header />
             </div>
+            <div className={styles.main}>
                 <div className={styles.banneravatar}>
         
                     <div className={styles.banner}>
@@ -157,9 +158,10 @@ export default function Profile() {
         
                     </div>
                 </div>
+                </div>
             </div>
 
-            <div className={styles.other}></div>
+          
 
         </div>
       )    

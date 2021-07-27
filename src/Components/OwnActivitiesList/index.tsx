@@ -37,10 +37,7 @@ export default function OwnActivitiesList() {
         //console.log(cursor);
       });
     }
-    useEffect(() => {
-      fetchData();
-    }  
-    , [])
+   
   
   return (
     <div>

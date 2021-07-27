@@ -219,10 +219,10 @@ export default function Activity() {
                                     {isParticipating ? "Cancelar" : "Participar"}
                                 </button>
                         }
-                        {
+                        {/*
                             activity.activityOwner == decodedtoken.iss ?
                             <button className={styles.addhours} onClick={ApagarAtividade}>Apagar Atividade</button> : null
-                        }
+                        */}
 
                         {
 

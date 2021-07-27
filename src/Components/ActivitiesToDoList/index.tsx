@@ -46,10 +46,13 @@ export default function ActivitiesToDoList() {
     }
 
 
-   
+    useEffect(() => {
+      fetchData();
+    }  
+    , [])
   return (
     <div>
-       <h3 style={{ textAlign: 'center' }}>Atividades Agendadas</h3>
+       <h3 style={{ textAlign: 'center' }}>Atividades a fazer</h3>
 
 <InfiniteScroll
           dataLength={listativities.length * 5} //This is important field to render the next data

@@ -71,6 +71,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   
   async function handleLogout() {
     setAuthenticated(false);
+    setTimeout(() =>Cookie.remove('token'),1000);
+    
   }
 
 

@@ -9,6 +9,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import  {Token } from '../../types';
 import jwt_decode from 'jwt-decode';
 import Cookie from 'js-cookie';
+import router from 'next/router';
 
 export default function NavBar() {
 
@@ -77,9 +78,13 @@ export default function NavBar() {
           <div className={styles.topics}>
             <span className={styles.links}>
               <IoLogOutSharp />
-              <a onClick={() => {window.location.href = '/';
-                                Cookie.remove('token');
-                                handleLogout();}} 
+              <a onClick={() => {
+                //window.location.href = '/';
+                router.push('/');
+                //Cookie.remove('token');
+                handleLogout();
+                              }
+                              } 
                   className={styles.linkname}> Logout</a>
             </span>
           </div>

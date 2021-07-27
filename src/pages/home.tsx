@@ -72,9 +72,10 @@ export default function Home() {
   const handleVal = (e) => {
     setVal(e.target.value)
     if(e.target.value==="" || e.target.value === null ){
-      setEndlist(true);
       setListativities([]);
       setCursor(null);
+      setEndlist(true);
+      fetchData();
     }
   }
 

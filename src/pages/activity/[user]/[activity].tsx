@@ -19,7 +19,7 @@ import {BiPhotoAlbum} from 'react-icons/bi'
 import ListComment from '../../../Components/ListComment'
 import {TextField,Button} from '@material-ui/core';
 import { useRouter } from 'next/router'
-
+import Head from "next/head";
 export default function Activity() {
     const router = useRouter();
     let path = window.location.pathname.replace('/', '');
@@ -63,7 +63,7 @@ export default function Activity() {
             }
           }
 
-        await api.delete('', config).then(response => setActivity(response.data))
+        await api.delete(``, config).then(response => setActivity(response.data))
             
         
         router.push('/home')
@@ -162,6 +162,9 @@ export default function Activity() {
 
     return (
         <div className={styles.main}>
+             <Head>
+        <title>{activity.title}</title>
+      </Head>
             <div className={styles.header}>
                 <Header />
             </div>

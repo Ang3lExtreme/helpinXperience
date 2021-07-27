@@ -55,7 +55,7 @@ export default function ListComment(activity:AtivitiesProps){
   
   endMessage={
     <p style={{ textAlign: 'center' }}>
-  <b>endlist</b>
+  <b>Sem mais comentários</b>
   </p>
   }
   scrollableTarget="scrollableDiv"

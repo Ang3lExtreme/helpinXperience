@@ -67,7 +67,7 @@ const validationSchema = Yup.object({
     .max(50, "O título deve ter entre 10 a 50 caráteres.")
     .required("Obrigatório"),
   description: Yup.string()
-    .min(50, "A descrição deve conter no minímo 100 caráteres.")
+    .min(50, "A descrição deve conter no minímo 50 caráteres.")
     .required("Obrigatório"),
   date: Yup.date().required("Obrigatório"),
   totalParticipants: Yup.number()
@@ -176,8 +176,11 @@ export default function Activities() {
             
             console.log(request)
             console.log(authenticated)
-            if (values.location !== "" || values.date === null) {
-              if (authenticated) {
+            console.log(values.date)
+            console.log(format(Date.now(), "yyyy-MM-dd"))
+            values.date = date;
+            if (values.location !== "" && values.date !== format(Date.now(), "yyyy-MM-dd")) {
+              
                 await api.post('activities/insert',request,config)
                   .then(response => 
                     console.log(response.data)
@@ -186,10 +189,10 @@ export default function Activities() {
                   )
                 setSubmitting(false);
                 window.location.href = '/home';
-              }
+              
             }
             else {
-              alert('Prencher data')
+              alert('Verificar data e localização')
               setLocalError(true)
             }
             setSubmitting(false);

@@ -132,6 +132,12 @@ export default function Activity() {
         long: activity.lon,
         waypoints: activity.waypoints,
     }
+    var today = activity.date.split("-")
+    console.log(activity.date)
+    var newDate = new Date(parseInt(today[0]),parseInt(today[1])-1,parseInt(today[2]));
+    console.log(newDate);
+    
+    
 
     return (
         <div className={styles.main}>
@@ -155,6 +161,9 @@ export default function Activity() {
                 <div className={styles.detailmap}>
                     <div className={styles.details}>
                         <p><a className={styles.bold}>{"Data: "}</a>{format(new Date(activity.date), "dd/MM/yyyy")}</p>
+                        <p> <a className={styles.bold}>{"Hora de início: "}</a>  {activity.startHour}</p>
+                        <p> <a className={styles.bold}>{"Hora de término: "}</a>  {activity.endHour}</p>
+                        <p> <a className={styles.bold}>{"Categoria: "}</a>  {activity.category}</p>
                         <p> <a className={styles.bold}>{"Local: "}</a>  {activity.location}</p>
                         <p> <a className={styles.bold}>{"Categoria: "}</a>  {activity.category}</p>
                         <p> <a className={styles.bold}>{"Vagas preenchidas: "}</a>  {activity.participants + "/" + activity.totalParticipants}</p>
@@ -183,12 +192,13 @@ export default function Activity() {
                         <MapActivity {...props} />
 
                         {
-                            (!isParticipating === false && activity.participants === activity.totalParticipants) || decodedtoken.iss === activity.activityOwner ||
-                            (format(new Date(activity.date), "dd/MM/yyyy") < format(Date.now(),"dd/MM/yyyy") ) ?
+                            
+                            format(new Date(activity.date), "dd/MM/yyyy") > format(Date.now(),"dd/MM/yyyy")  ?
                                 <></> : <button onClick={handleClick}>
                                     {isParticipating ? "Cancelar" : "Participar"}
                                 </button>
                         }
+                       
 
                         {
 

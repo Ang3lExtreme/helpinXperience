@@ -34,7 +34,8 @@ description: Yup.string()
 });
 
 export default function ReportForm(props) {
-
+    let username = window.location.pathname.split('/')
+    let user = username[2];
     const router = useRouter();
 
     async function fetcher(path: string): Promise<userProps> {
@@ -65,7 +66,7 @@ export default function ReportForm(props) {
     
                 setSubmitting(true);
                 
-                fetcher('/users/report');
+                fetcher(`/users/report/${user}`);
 
                 fetch('/api/report', {
                     method: 'post',

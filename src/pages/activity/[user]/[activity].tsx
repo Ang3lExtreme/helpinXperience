@@ -297,7 +297,7 @@ Atribuir Horas aos participantes {activity.done}
                 <Multiline placeholder="Escreva um comentário" name="comment" type="input"
                   as={Multiline} />
 
-                <Button disabled={isSubmitting} type="submit">Criar </Button>
+                <button className={styles.enviar} disabled={isSubmitting} type="submit">Enviar</button>
 
               </div>
             </Form>

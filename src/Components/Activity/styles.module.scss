@@ -61,7 +61,7 @@
       flex-direction: row;
       justify-content: space-evenly ;
       margin-top: 20px;
-     overflow:hidden;
+      overflow:hidden;
      
      text-overflow: clip;
       .localdate{
@@ -74,6 +74,9 @@
         p{
           margin-left: 10px;
           margin-top: 7px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
       .participants{

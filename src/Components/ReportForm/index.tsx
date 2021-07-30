@@ -7,6 +7,7 @@ import { api } from '../../../services/api';
 import jwt_decode from "jwt-decode";
 import { Token, userProps } from '../../types';
 import Cookies from 'js-cookie';
+import { useState } from 'react';
 
 const MyTextField: React.FC<FieldAttributes<{}>> = ({ type, placeholder, ...props }) => {
     const [field, meta] = useField<{}>(props);
@@ -37,6 +38,7 @@ export default function ReportForm(props) {
     let username = window.location.pathname.split('/')
     let user = username[2];
     const router = useRouter();
+    const [showSuccess, setShow] = useState(false);
 
     async function fetcher(path: string): Promise<userProps> {
         const token: Token = Cookies.getJSON('token')
@@ -52,53 +54,62 @@ export default function ReportForm(props) {
     
     return (
         <div className={styles.container}>
+            <div className={styles.container}>
                 
-            <h1>Denúncia</h1>
-            <Formik initialValues={{
-                reason: '',
-                description: '',
-                accused: props.accused,
-                accuser: props.accuser
-            }}
-                validationSchema={validationSchema}
-    
-            onSubmit={async (values, { setSubmitting }) => {
-    
-                setSubmitting(true);
+            {!showSuccess ?
+                
+                    <>
+                        <h1>Denúncia</h1>
+                        <Formik initialValues={{
+                            reason: '',
+                            description: '',
+                            accused: props.accused,
+                            accuser: props.accuser
+                        }}
+                            validationSchema={validationSchema}
                 
                 fetcher(`/users/report/${user}`);
 
-                fetch('/api/report', {
-                    method: 'post',
-                    body: JSON.stringify(values)
-                  });
+                            fetch('/api/report', {
+                                method: 'post',
+                                body: JSON.stringify(values)
+                            });
 
-                setSubmitting(false);
+                            setSubmitting(false);
 
-                router.push(`/${props.accused}`);
+                            setShow(true);
+                            
+                            }}>
                 
-                }}>
-    
-    
-            {({ isSubmitting }) => (
-                <Form className={styles.form}>
+                
+                        {({ isSubmitting }) => (
+                            <Form className={styles.form}> 
 
-                <div className={styles.formtext}>
-                    <MyTextField className={styles.input} placeholder="Motivo da denúncia" name="reason" type="input" as={TextField} />
-                    <br />
-                    <Multiline placeholder="Descrição da situação" name="description" type="input"
-                    as={Multiline} />
-                    <br />
-        
-                    <div>
-                        <Button disabled={isSubmitting} type="submit">Denunciar</Button>
-                    </div>
-                </div>
-                </Form>
-    
-            )
+                                <div className={styles.formtext}> 
+                                    <MyTextField className={styles.input} placeholder="Motivo da denúncia" name="reason" type="input" as={TextField} />
+                                    <br />
+                                    <Multiline placeholder="Descrição da situação" name="description" type="input"
+                                    as={Multiline} />
+                                    <br />
+                        
+                                    <div>
+                                        <Button disabled={isSubmitting} type="submit">Denunciar</Button>
+                                    </div>
+                                </div>
+
+                            </Form>
+                        )
+                        }
+                        </Formik>
+                    </>
+            :
+            <div className={styles.formtext}>
+
+                <h1>Denúncia enviada com sucesso.</h1>
+                    
+            </div>
             }
-            </Formik>
+            </div>
         </div>
     )
 }

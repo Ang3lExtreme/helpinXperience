@@ -12,35 +12,12 @@ import SessionOf from '../../Components/SessionOf'
 import Image from 'next/image'
 import Loading from '../../Components/Loading'
 import jwt_decode from "jwt-decode"
-import { Token } from '../../types';
+import { Token, userProps } from '../../types';
 import ActivitiesToDoList from '../../Components/ActivitiesToDoList';
 import OwnActivitiesList from '../../Components/OwnActivitiesList';
 import ActivitiesDoneList from '../../Components/ActivitiesDoneList';
 import { GoLocation } from 'react-icons/go'
 import { AiOutlineMail, AiOutlinePhone } from 'react-icons/ai'
-
-type userProps = {
-  birthday: string;
-  email: string;
-  name: string;
-  profile: string;
-  phoneNumber: string;
-  mobileNumber: string;
-  address: string;
-  location: string;
-  postalCode: string;
-  gender: string;
-  username: string;
-  image: string;
-  followers: number,
-  followings: number,
-  reports: number,
-  isOrg: boolean,
-  state: string,
-  role: string,
-  hoursDone: number,
-  joinedActivities: number
-}
 
 const token: Token = Cookies.getJSON('token');
 

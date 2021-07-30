@@ -67,8 +67,12 @@ export default function ReportForm(props) {
                             accuser: props.accuser
                         }}
                             validationSchema={validationSchema}
+
+                            onSubmit={async (values, { setSubmitting }) => {
+    
+                            setSubmitting(true);
                 
-                fetcher(`/users/report/${user}`);
+                            fetcher(`/users/report/${user}`);
 
                             fetch('/api/report', {
                                 method: 'post',

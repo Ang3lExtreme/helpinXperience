@@ -12,7 +12,7 @@ export default function OwnActivitiesList() {
   const [listativities, setListativities] = useState<listAtivitiesTodoProps>([]);
   const [cursor, setCursor] = useState<string>(null);
   let username = window.location.pathname.replace('/', '')
-  const [endlist, setEndlist] = useState<boolean>(true);
+  const [endlist, setEndlist] = useState<boolean>(false);
   const token: Token = Cookies.getJSON('token')
   let config = {
     headers: {
@@ -37,7 +37,13 @@ export default function OwnActivitiesList() {
         //console.log(cursor);
       });
     }
-   
+    
+    useEffect(() => {
+      fetchData()
+      setEndlist(true)
+       
+      
+    },[])
   
   return (
     <div>

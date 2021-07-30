@@ -6,8 +6,8 @@ import mapstyle from "./mapstyle";
 
 const libraries: Libraries = ["places"];
 const mapContainerStyle = {
-  width: "20rem",
-  height: "15rem",
+  width: "28rem",
+  height: "20rem",
   borderRadius: '1rem',
 };
 

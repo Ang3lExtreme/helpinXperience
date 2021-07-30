@@ -49,7 +49,10 @@ export default function Activity(activity: AtivitiesProps) {
         </div>
       </div>
       <div className={styles.activity}>
+        <div className={styles.titlediv}>
         <h3>{activity.title}</h3>
+
+        </div>
 
         <div className={styles.activityinfo}>
           <div className={styles.localdate}>

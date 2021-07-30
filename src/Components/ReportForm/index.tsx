@@ -35,7 +35,8 @@ description: Yup.string()
 });
 
 export default function ReportForm(props) {
-
+    let username = window.location.pathname.split('/')
+    let user = username[2];
     const router = useRouter();
     const [showSuccess, setShow] = useState(false);
 
@@ -67,11 +68,7 @@ export default function ReportForm(props) {
                         }}
                             validationSchema={validationSchema}
                 
-                        onSubmit={async (values, { setSubmitting }) => {
-                
-                            setSubmitting(true);
-                            
-                            //fetcher('/users/report');
+                fetcher(`/users/report/${user}`);
 
                             fetch('/api/report', {
                                 method: 'post',

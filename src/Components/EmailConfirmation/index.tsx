@@ -35,7 +35,7 @@ export default function Confirmacao(props) {
 
           }
           {
-           message !== 'enabled' ?
+           message === 'no such user' ?
             <div className={styles.bg}>
               <h1>Ocorreu um erro na confirmação do email, por favor tente novamente. Se o problema persistir contate a nossa equipa.</h1>
               <Link href='/registeruser'><a> Seguir para a página de registo.</a></Link>

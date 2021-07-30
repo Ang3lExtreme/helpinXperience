@@ -57,7 +57,7 @@ export default function MapView() {
 
   
   //const [markers, setMarkers] = useState({ lat: 0, lng: 0 });
-  const { activityLocation, setActivityLocation, markers, setMarkers, setMappoints } = useContext(MapContext);
+  const { activityLocation, setActivityLocation, markers, setMarkers, setMappoints, mappoints } = useContext(MapContext);
 
   const handleNPoints = useCallback( (event) => {
     setRender(false);
@@ -84,7 +84,9 @@ export default function MapView() {
          
           )
         })
+        //console.log('points',points)
         setRender(true);
+        //console.log('points',points)
       }
       if(points.length > npoints-1){
         //setResponse(null);
@@ -118,7 +120,7 @@ export default function MapView() {
     //console.log(routes)
   }
   const directionsCallback = (response) => {
-    
+    console.log('points', points)
 
     if (response !== null) {
       if (response.status === "OK") {

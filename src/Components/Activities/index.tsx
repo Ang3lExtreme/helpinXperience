@@ -168,8 +168,8 @@ export default function Activities() {
             };
 
             values.date = date;
-            console.log('values',values.waypoints)
-            return;
+            //console.log('values',mappoints)
+            values.waypoints = mappoints;
             if (values.location !== "" && values.date !== format(Date.now(), "yyyy-MM-dd")) {
               
                 await api.post('activities/insert',request,config)

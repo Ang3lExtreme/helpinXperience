@@ -55,14 +55,14 @@ export default function MapView() {
     libraries,
   });
 
-  
+  //console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
   //const [markers, setMarkers] = useState({ lat: 0, lng: 0 });
-  const { activityLocation, setActivityLocation, markers, setMarkers, setMappoints, mappoints } = useContext(MapContext);
+  const { activityLocation, setActivityLocation, markers, setMarkers, setMappoints } = useContext(MapContext);
 
   const handleNPoints = useCallback( (event) => {
     setRender(false);
       setNPoints(event.target.value)
-      //console.log(npoints);
+     // console.log(npoints);
       setPoints([])
       setResponse(null);
       //console.log(event.target.value);
@@ -76,17 +76,15 @@ export default function MapView() {
     if(npoints > 1 && npoints < 11){
       //console.log(npoints)
       if(points.length === npoints-1){
-       // console.log('render')
-       // console.log(points)
+        //console.log('render')
+        //console.log(points)
         points.map((local) => {
           setMappoints((current) =>
           current.concat(`${local.location.lat}`,`${local.location.lng}`)
          
           )
         })
-        //console.log('points',points)
         setRender(true);
-        //console.log('points',points)
       }
       if(points.length > npoints-1){
         //setResponse(null);
@@ -102,7 +100,7 @@ export default function MapView() {
         )
       }
       
-      console.log(points)
+    //  console.log(points)
       //console.log(points.length)
      
     }
@@ -117,10 +115,10 @@ export default function MapView() {
     !routes ? 
     setRoutes(true) : setRoutes(false)
     
-    //console.log(routes)
+   // console.log(routes)
   }
   const directionsCallback = (response) => {
-    console.log('points', points)
+    
 
     if (response !== null) {
       if (response.status === "OK") {
@@ -144,7 +142,7 @@ export default function MapView() {
 
       } ,
     );
-   // console.log(event.latLng.lat(), event.latLng.lng())
+    //console.log(event.latLng.lat(), event.latLng.lng())
   }, []);
 
   const mapRef = useRef(null);
@@ -162,7 +160,7 @@ export default function MapView() {
   const inputvalue = (result: string) => {
     //debugger
     let res: string = result;
-   // console.log(res)
+    //console.log(res)
     setActivityLocation(res)
     //console.log('local: ' + activityLocation)
   };
@@ -281,14 +279,14 @@ function Search({ panTo, inputvalue }) {
           panTo({ lat, lng });
 
           inputvalue(address);
-          console.log(lat, lng)
+         // console.log(lat, lng)
         } catch (error) {
-          console.log("error")
+          //console.log("error")
         }
       }}>
         <ComboboxInput value={value} onChange={(e) => {
           setValue(e.target.value);
-          console.log(e.target.value)
+         // console.log(e.target.value)
 
           inputvalue(e.target.value);
         }}

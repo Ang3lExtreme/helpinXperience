@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
       <Html >
         <Head>
           {/* Add fonts, favicon, etc */}
-
+          <meta name="google-site-verification" content="Ld--DU4DfJ8PITuoepuYmJn3S2xrV-6ckShWXT985Js" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
